@@ -1,17 +1,13 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if(x<0) return false;
-        long long res = rev(x,0);
-        if(res == x) return true;
+        if(x < 0) return false;
+        long long int s = rev(0,x);
+        if(s == x) return true;
         return false;
     }
-    long long rev(int x, long long sum){
-        if(x == 0){
-            return sum;
-        }
-        sum = sum*10 + x%10;
-        x/=10;
-        return rev(x,sum);
+    long long int rev(long long int a ,long long int b){
+        if(b!=0) return rev(a*10+b%10,b/10);
+        return a;
     }
 };
